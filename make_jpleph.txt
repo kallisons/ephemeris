@@ -1,0 +1,8 @@
+#! /bin/sh
+
+g77 -c jplint.f ephem.f -fno-underscoring
+
+gcc -c suneph.c novas.c readeph0.c novascon.c solsys2.c
+
+g77 suneph.o novas.o readeph0.o novascon.o solsys2.o ephem.o jplint.o -lg2c -lm -o jpleph
+  
